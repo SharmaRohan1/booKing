@@ -1,6 +1,6 @@
 import { Badge } from 'react-bootstrap';
 
-import './styles/result.css';
+import './styles/resultStyles.css';
 
 export function Result(props) {
   const id = props.id;

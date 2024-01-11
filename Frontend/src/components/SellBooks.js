@@ -1,4 +1,5 @@
 import "./styles/sellBooksStyles.css";
+import ListedBooks from "./ListedBooks";
 
 function SellBooks() {
   const handleSubmit = (event) => {
@@ -51,6 +52,8 @@ function SellBooks() {
           <button type="submit">Submit Listing</button>
         </form>
       </div>
+
+      <ListedBooks />
     </section>
   );
 }

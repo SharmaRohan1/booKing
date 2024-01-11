@@ -1,5 +1,5 @@
 #sellbooks-section {
-    height: 100vh;
+    min-height: 100vh;
     padding: 20vh 20px 10vh;
 
     display: grid;
