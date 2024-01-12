@@ -12,11 +12,3 @@ root.render(
     </GoogleOAuthProvider>
 );
 
-
-/////////
-
-// Client ID:
-// 900023061203-498uqp6lkj8gup0o1lgbmiqn63romq1f.apps.googleusercontent.com
-
-//Client Secret
-//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
