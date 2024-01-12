@@ -1,26 +1,29 @@
-// Bootstrap CSS
-import "bootstrap/dist/css/bootstrap.min.css";
-// Bootstrap Bundle JS
-import "bootstrap/dist/js/bootstrap.bundle.min";
-
-import "./styles.css";
-
-import Navbar from "./components/Navbar";
-import AboutUs from "./components/AboutUs";
-import SellBooks from "./components/SellBooks";
-import BuyBooks from "./components/BuyBooks";
-import JoinUs from "./components/JoinUs";
-import ContactUs from "./components/ContactUs";
+import SignIn from "./components/SignIn";
+import HomePage from "./components/HomePage";
 
 export default function App() {
-  return (
-    <div className="App">
-      <Navbar />
-      <AboutUs />
-      <BuyBooks />
-      <SellBooks />
-      <JoinUs />
-      <ContactUs />
-    </div>
-  );
+  function getCookie(name) {
+    const cookies = document.cookie.split(";");
+
+    for (const cookie of cookies) {
+      const [cookieName, cookieValue] = cookie.trim().split("=");
+
+      if (cookieName === name) {
+        return decodeURIComponent(cookieValue);
+      }
+    }
+
+    return null; // Cookie not found
+  }
+
+  const userValue = getCookie("email");
+
+  if (userValue != null) {
+    console.log(userValue);
+    return <HomePage email={userValue}/>
+  } else {
+    console.log("New User");
+    return <SignIn />;
+  }
+
 }
