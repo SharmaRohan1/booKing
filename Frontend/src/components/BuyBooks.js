@@ -1,10 +1,29 @@
 import "./styles/buyBooksStyles.css";
 import SearchResults from "./SearchResults";
 
+import { useState } from "react";
+
 function BuyBooks() {
+
+  const [submitted , setSubmitted] = useState(false);
+
+  const [bookQuery , setBookQuery] = useState("");
+  const [authorQuery , setAuthorQuery] = useState("");
+
+  const handleBookNameChange = (event) => {
+    setBookQuery(event.target.value);
+  };
+
+  const handleAuthorNameChange = (event) => {
+    setAuthorQuery(event.target.value);
+  };
+
   const onFormSubmit = (event) => {
     event.preventDefault();
-    console.log("Buy Form Submitted");
+    console.log("Search form submitted");
+    setSubmitted(!submitted);
+    setBookQuery("");
+    setAuthorQuery("");
   };
 
   return (
@@ -14,17 +33,16 @@ function BuyBooks() {
 
         <form className="buybooks-form" onSubmit={onFormSubmit}>
           <div className="buybooks-form-input-section">
-            <input type="text" placeholder="Book name" required />
-            <input type="text" placeholder="Author name" />
+            <input type="text" placeholder="Book name" value={bookQuery} onChange={handleBookNameChange} required />
+            <input type="text" placeholder="Author name" value={authorQuery} onChange={handleAuthorNameChange} />
           </div>
 
           <button type="submit">Search</button>
         </form>
 
-        <div className="search-results"></div>
       </div>
 
-      <SearchResults />
+      {submitted && <SearchResults bookQuery={bookQuery} authorQuery={authorQuery}/>}
     </section>
 
   );

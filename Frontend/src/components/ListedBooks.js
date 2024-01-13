@@ -87,12 +87,11 @@ const listings = [
   },
 ];
 
-
 function ListedBooks() {
   //for getting the listings
 
   //initial call to the server
-  const listings1 = [];
+  const listings1 = [];//this stores the result of the first call to the backend
 
   //const [listings , setListings] = useState(listings1);
 
@@ -119,14 +118,23 @@ function ListedBooks() {
     setCurrentPage(page);
   };
 
-  const empty = (listings.length === 0);
+  const empty = listings.length === 0;
 
   return (
     <section id="listedBooks-section">
       <div className="listedBooks-container">
         <h3>Books listed by you</h3>
         {empty ? (
-          <div className="listing" style={{color:"white" , fontWeight:"bolder" , textAlign:"center"}}>No listing</div>
+          <div
+            className="listing"
+            style={{
+              color: "white",
+              fontWeight: "bolder",
+              textAlign: "center",
+            }}
+          >
+            No listing
+          </div>
         ) : (
           <div className="listings">
             {currentItems.map((res) => {
@@ -148,7 +156,7 @@ function ListedBooks() {
             })}
           </div>
         )}
-        
+
         <div className="pagination-container">
           <Pagination>
             {[...Array(totalPages)].map((_, index) => (
