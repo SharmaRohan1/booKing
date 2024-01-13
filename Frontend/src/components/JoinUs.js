@@ -1,6 +1,7 @@
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 
+
 import "./styles/joinusStyles.css"
 
 function JoinUs() {
