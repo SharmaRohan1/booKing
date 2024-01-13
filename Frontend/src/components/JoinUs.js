@@ -3,8 +3,43 @@ import Button from 'react-bootstrap/Button';
 
 
 import "./styles/joinusStyles.css"
+import { useState } from 'react';
 
 function JoinUs() {
+
+  const [name , setName] = useState("");
+  const [college , setCollege] = useState("");
+  const [email , setEmail] = useState("");
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  }
+
+  const handleCollegeChange = (event) => {
+    setCollege(event.target.value);
+  }
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  }
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    //call to the backend with the value name , email , college
+    //
+    //
+    //
+    //
+
+    alert("Form submitted. Thank u so much for your interest!!");
+
+    setName("");
+    setCollege("");
+    setEmail("");
+  };
+
+
   return (
     <section id="joinus-section">
     <div className="joinus-container">
@@ -14,10 +49,10 @@ function JoinUs() {
         <Accordion.Header>Start a chapter (Student Leader Registration)</Accordion.Header>
         <Accordion.Body>
         <p>At BooKing, we invite you to be a part of a movement that goes beyond books. Help us expand BooKing by leading a chapter at your college. Fill out the form given below and show us what you’ve got. </p>
-        <form action="" className="studentLeaderForm">
-            <input type="text" placeholder='Name'  required/>
-            <input type="text" placeholder='College'  required/>
-            <input type="email" placeholder='E-Mail'  required/>
+        <form action="" className="studentLeaderForm" onSubmit={handleFormSubmit}>
+            <input type="text" placeholder='Name' value={name} onChange={handleNameChange}  required/>
+            <input type="text" placeholder='College' value={college} onChange={handleCollegeChange}  required/>
+            <input type="email" placeholder='E-Mail' value={email} onChange={handleEmailChange}  required/>
             <Button as="input" type="submit" value="Submit" variant='success'/>{' '}
         </form>
             
