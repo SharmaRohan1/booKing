@@ -29,7 +29,7 @@ export default function SignIn() {
   }, [flag]);
 
   return flag ? (
-    <HomePage />
+        <HomePage/>
   ) : (
     <section id="signIn-section">
       <div className="signIn-container">

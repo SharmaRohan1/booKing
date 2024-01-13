@@ -7,11 +7,12 @@ function Listing(props) {
   const title = props.title;
   const author = props.author;
   const edition = props.edition;
+  const onDelete = props.onDelete;
 
   const handleClick = (event) => {
     //console.log("Delete clicked");
     const idToBeDeleted = event.target.parentNode.parentNode.getAttribute("id");
-    console.log(idToBeDeleted);
+    onDelete(idToBeDeleted);
   };
 
   return (

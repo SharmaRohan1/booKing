@@ -12,10 +12,8 @@ import BuyBooks from "./BuyBooks";
 import JoinUs from "./JoinUs";
 import ContactUs from "./ContactUs";
 
-export default function HomePage(props) {
 
-    const email = props.email;
-    console.log("Homepage received " , email);
+export default function HomePage() {
 
   return (
     <div className="App">

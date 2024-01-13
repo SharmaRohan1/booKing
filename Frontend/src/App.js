@@ -20,7 +20,10 @@ export default function App() {
 
   if (userValue != null) {
     console.log(userValue);
-    return <HomePage email={userValue}/>
+      
+    return (
+        <HomePage/>
+    );
   } else {
     console.log("New User");
     return <SignIn />;
